@@ -14,19 +14,19 @@ datasource db {
 }
 
 model Customer {
-  id        Int    @id @default(autoincrement())
-  name      String
-  nameKana  String
-  address   String
-  postalCode String
-  email     String?  @unique
-  phone     String
+  id          Int     @id @default(autoincrement())
+  name        String
+  nameKana    String
+  address     String
+  postalCode  String
+  email       String  @unique
+  phoneNumber String
   companyCode String
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id          Int     @id @default(autoincrement())
+  email       String  @unique
+  password    String
   companyCode String
 }

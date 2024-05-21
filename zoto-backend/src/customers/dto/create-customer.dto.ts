@@ -15,10 +15,10 @@ export class CreateCustomerDto {
   postalCode: string;
   @IsString()
   @IsNotEmpty()
-  email?: string;
+  email: string;
   @IsString()
   @IsNotEmpty()
-  phone: string;
+  phoneNumber: string;
   @IsString()
   @IsNotEmpty()
   companyCode: string;

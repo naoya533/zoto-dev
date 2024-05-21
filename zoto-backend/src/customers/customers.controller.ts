@@ -1,11 +1,11 @@
 import {
   Controller,
-  Get,
   Post,
+  Body,
+  Get,
+  Param,
   Put,
   Delete,
-  Body,
-  Param,
 } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { Customer } from '@prisma/client';
@@ -17,32 +17,32 @@ export class CustomersController {
   constructor(private readonly customersService: CustomersService) {}
 
   @Post()
-  async createCustomer(
-    @Body() customerData: CreateCustomerDto,
+  async create(
+    @Body() createCustomerDto: CreateCustomerDto,
   ): Promise<Customer> {
-    return this.customersService.createCustomer(customerData);
+    return this.customersService.createCustomer(createCustomerDto);
   }
 
   @Get()
-  async getAllCustomers(): Promise<Customer[]> {
+  async findAll(): Promise<Customer[]> {
     return this.customersService.getAllCustomers();
   }
 
   @Get(':id')
-  async getCustomerById(@Param('id') id: number): Promise<Customer | null> {
+  async findOne(@Param('id') id: number): Promise<Customer | null> {
     return this.customersService.getCustomerById(id);
   }
 
   @Put(':id')
-  async updateCustomer(
+  async update(
     @Param('id') id: number,
-    @Body() customerData: UpdateCustomerDto,
+    @Body() updateCustomerDto: UpdateCustomerDto,
   ): Promise<Customer> {
-    return this.customersService.updateCustomer(id, customerData);
+    return this.customersService.updateCustomer(id, updateCustomerDto);
   }
 
   @Delete(':id')
-  async deleteCustomer(@Param('id') id: number): Promise<Customer> {
+  async remove(@Param('id') id: number): Promise<Customer> {
     return this.customersService.deleteCustomer(id);
   }
 }
