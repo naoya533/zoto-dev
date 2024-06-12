@@ -14,5 +14,19 @@ services:
     volumes:
       - db_vol:/var/lib/postgresql/data
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 81:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: nestjs@example.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    volumes:
+      - ./docker/pgadmin:/var/lib/pgadmin
+    depends_on:
+      - pgsql_db
+    user: root
+
 volumes:
   db_vol:
