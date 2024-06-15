@@ -8,5 +8,4 @@ export class UpdateCustomerDto extends PartialType(CreateCustomerDto) {
   postalCode?: string;
   email?: string;
   phoneNumber?: string;
-  companyCode?: string;
 }
