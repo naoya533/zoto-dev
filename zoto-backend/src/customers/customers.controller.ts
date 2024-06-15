@@ -24,7 +24,7 @@ export class CustomersController {
   async create(
     @Request() req, @Body() createCustomerDto: CreateCustomerDto
   ): Promise<Customer> {
-    console.log('Request User:', req.user); // デバッグ用ログ
+    //console.log('Request User:', req.user); // デバッグ用ログ
 
     const userId = req.user?.userId;
     const companyCode = req.user?.companyCode;
@@ -39,7 +39,7 @@ export class CustomersController {
   @UseGuards(JwtAuthGuard)
   @Get()
   async getCustomers(@Request() req) : Promise<Customer[]>{
-    return this.customersService.getCustomersByCompanyCode(req.user.companyCode);
+    return this.customersService.getCustomersByCompanyCode(req.user);
   }
 
   @UseGuards(JwtAuthGuard)

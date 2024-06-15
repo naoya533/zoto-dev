@@ -8,6 +8,7 @@ export class CustomersService {
   constructor(private prisma: PrismaService) {}
 
   async getCustomersByCompanyCode(user: User): Promise<Customer[]> {
+    //console.log(user);
     return this.prisma.customer.findMany({
       where: {
         companyCode: user.companyCode,

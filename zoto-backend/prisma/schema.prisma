@@ -23,7 +23,7 @@ model Customer {
   phoneNumber String
   companyCode String
   userId      String
-  user        User     @relation(fields: [userId], references: [id])
+  user        User    @relation(fields: [userId], references: [id])
 }
 
 model User {
