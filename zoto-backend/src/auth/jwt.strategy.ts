@@ -14,6 +14,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    return { userId: payload.sub, email: payload.email };
+    //console.log('JWT Payload:', payload); // デバッグ用ログ
+    return { 
+      userId: payload.id, // JWT ペイロードのサブ（subject）フィールドを userId として使用
+      email: payload.email,
+      companyCode: payload.companyCode, // JWT ペイロードから companyCode を取得 };
+    };
   }
 }

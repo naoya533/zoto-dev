@@ -26,21 +26,21 @@ export class UsersController {
     return this.usersService.getAllUsers();
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: number): Promise<User | null> {
-    return this.usersService.getUserById(id);
+  @Get(':email')
+  async findOne(@Param('email') email: string): Promise<User | null> {
+    return this.usersService.getUserByemail(email);
   }
 
-  @Put(':id')
+  @Put(':email')
   async update(
-    @Param('id') id: number,
+    @Param('email') email:string ,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<User> {
-    return this.usersService.updateUser(id, updateUserDto);
+    return this.usersService.updateUser(email, updateUserDto);
   }
 
-  @Delete(':id')
-  async remove(@Param('id') id: number): Promise<User> {
-    return this.usersService.deleteUser(id);
+  @Delete(':email')
+  async remove(@Param('email') email: string): Promise<User> {
+    return this.usersService.deleteUser(email);
   }
 }

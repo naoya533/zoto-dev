@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { User } from '@prisma/client';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateCustomerDto {
   @IsString()
@@ -19,7 +20,5 @@ export class CreateCustomerDto {
   @IsString()
   @IsNotEmpty()
   phoneNumber: string;
-  @IsString()
-  @IsNotEmpty()
-  companyCode: string;
+  
 }
