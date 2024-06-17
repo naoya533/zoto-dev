@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .title {
+    color: darkgreen;
+    margin-bottom: 20px;
+  }
+  
+  .customerList {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customerItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .customerItem:last-child {
+    border-bottom: none;
+  }
+  
+  .customerName {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .customerEmail {
+    color: #666;
+  }
+  
+  .emptyMessage {
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+  }
+  

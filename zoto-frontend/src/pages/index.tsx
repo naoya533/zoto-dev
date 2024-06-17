@@ -1,60 +1,29 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import styles from '../styles/Login.module.css';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const response = await fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      localStorage.setItem('token', data.access_token);
-      router.push('/dashboard');
-    } else {
-      alert('Login failed');
-    }
-  };
-
+const Home = () => {
   return (
     <div className={styles.container}>
-    <form onSubmit={handleSubmit} className={styles.loginForm}>
-      <h2 className={styles.title}>ログイン</h2>
-      <div className={styles.inputGroup}>
-        <label htmlFor="email">メールアドレス</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div className={styles.inputGroup}>
-        <label htmlFor="password">パスワード</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit" className={styles.submitButton}>ログイン</button>
-    </form>
-  </div>
+      <h1>トップページ</h1>
+      <ul className={styles.menu}>
+        <li>
+          <Link href="/register">
+            顧客情報登録
+          </Link>
+        </li>
+        <li>
+          <Link href="/customers">
+            顧客情報一覧
+          </Link>
+        </li>
+        <li>
+          <Link href="/edit">
+            顧客情報編集
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 };
 
-export default Login;
+export default Home;

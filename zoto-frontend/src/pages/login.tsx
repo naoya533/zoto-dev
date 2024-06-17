@@ -22,7 +22,7 @@ const Login = () => {
       const data = await response.json();
       //console.log(data.accessToken);
       localStorage.setItem('token', data.accessToken);
-      router.push('/dashboard');
+      router.push('/');
     } else {
       alert('Login failed');
     }

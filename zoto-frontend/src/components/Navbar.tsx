@@ -14,12 +14,6 @@ const Navbar = () => {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <li>
-          <Link href="/dashboard">Dashboard</Link>
-        </li>
-        <li>
-          <Link href="/protected">Protected</Link>
-        </li>
       </ul>
     </nav>
   );
