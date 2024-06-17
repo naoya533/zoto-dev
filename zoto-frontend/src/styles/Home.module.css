@@ -21,4 +21,22 @@
     color: darkgreen;
     font-size: 18px;
   }
+
+  .menu a:hover {
+    background-color: darkgreen;
+    color: white;
+  }
   
+  .signOutButton {
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signOutButton:hover {
+    background-color: darkred;
+  }

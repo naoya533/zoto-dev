@@ -37,24 +37,32 @@ const Customers = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>顧客情報一覧</h1>
-      {customers.length === 0 ? (
-        <p className={styles.emptyMessage}>顧客情報がありません</p>
-      ) : (
-        <div className={styles.customerList}>
-          {customers.map((customer) => (
-            <div key={customer.id} className={styles.customerItem}>
-              <span className={styles.customerName}>{customer.name}</span>
-              <span className={styles.customerEmail}>{customer.email}</span>
-              <span className={styles.customerEmail}>{customer.postalCode}</span>
-              <span className={styles.customerEmail}>{customer.address}</span>
-              <span className={styles.customerEmail}>{customer.phoneNumber}</span>
-              <span className={styles.customerEmail}>{customer.companyCode}</span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <h1 className={styles.title}>顧客情報一覧</h1>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>名前（カナ）</th>
+          <th>住所</th>
+          <th>郵便番号</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        {customers.map((customer) => (
+          <tr key={customer.id}>
+            <td>{customer.name}</td>
+            <td>{customer.nameKana}</td>
+            <td>{customer.address}</td>
+            <td>{customer.postalCode}</td>
+            <td>{customer.email}</td>
+            <td>{customer.phoneNumber}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
   );
 };
 
