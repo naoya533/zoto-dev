@@ -20,7 +20,8 @@ const Login = () => {
 
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem('token', data.access_token);
+      //console.log(data.accessToken);
+      localStorage.setItem('token', data.accessToken);
       router.push('/dashboard');
     } else {
       alert('Login failed');
@@ -28,17 +29,32 @@ const Login = () => {
   };
 
   return (
+    <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.loginForm}>
+      <h2 className={styles.title}>ログイン</h2>
       <div className={styles.inputGroup}>
-        <label className={styles.title}>Email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <label htmlFor="email">メールアドレス</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </div>
       <div className={styles.inputGroup}>
-        <label className={styles.title}>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <label htmlFor="password">パスワード</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
       </div>
-      <button type="submit" className={styles.submitButton}>Login</button>
+      <button type="submit" className={styles.submitButton}>ログイン</button>
     </form>
+  </div>
   );
 };
 

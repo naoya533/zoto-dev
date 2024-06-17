@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { email, password } = req.body;
 
-  const response = await fetch('http://localhost:3000/auth/login', {
+  const response = await fetch('http://localhost:3000/auth/signin', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

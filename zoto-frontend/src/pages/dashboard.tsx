@@ -6,7 +6,7 @@ const Dashboard = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');//上手くいかないポイント
     if (!token) {
       router.push('/login');
       return;
@@ -16,11 +16,13 @@ const Dashboard = () => {
       const response = await fetch('http://localhost:3000/customers', {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json', // 追加
         },
       });
 
       if (response.ok) {
         const data = await response.json();
+        //alert(data);
         setCustomers(data);
       } else {
         alert('Failed to fetch customers');
