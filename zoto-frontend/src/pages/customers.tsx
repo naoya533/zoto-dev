@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/Customers.module.css';
 
+interface Customer {
+    id: string;
+    name: string;
+    nameKana: string;
+    address: string;
+    postalCode: string;
+    email: string;
+    phoneNumber: string;
+  }
+
 const Customers = () => {
-  const [customers, setCustomers] = useState([]);
+    const [customers, setCustomers] = useState<Customer[]>([]);
 
   useEffect(() => {
     const fetchCustomers = async () => {
